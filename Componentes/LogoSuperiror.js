@@ -4,7 +4,7 @@ import { View, Image, StyleSheet, Text } from 'react-native';
 const LogInSuperior = props => {
     return (
     <View style={style.container} >
-        <Text>Ceu Check</Text>
+        <Text style={style.font}>CeuCheck</Text>
     </View>)
 };
 
@@ -15,6 +15,11 @@ const style = StyleSheet.create({
         alignItems: 'center', 
         flexDirection: 'row'
     },
+    font:{
+        fontWeight: 'bold',
+        fontSize: 60,
+        color:'#a7a7a8'
+    }
 });
 
 export default LogInSuperior;
