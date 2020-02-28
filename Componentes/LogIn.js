@@ -19,6 +19,10 @@ const LogIn = props => {
     </View>)
 };
 
+LogIn.navigationOptions = {
+    headerShown: false,
+};
+
 const style = StyleSheet.create({
     screen:{
         flex: 1,
