@@ -4,19 +4,44 @@ import { CeuModules } from '../Data/CeuModules';
 
 const CeuMenu = props =>{
     return (
-        <View>
-            <Text>Test</Text>
+        <View style={style.screen}>
+            <View style={style.evaluacion}> 
+                <Text>Test</Text>
+            </View>
+            <View style={style.asistencia}>
+
+            </View>
+            <View style={style.reportes}> 
+
+            </View>
+            <View>
+                
+            </View>
         </View>
     )
 }
 
+CeuMenu.navigationOptions = {
+    headerTitle: 'Menu'
+}
+
 const style = StyleSheet.create({
-    screen:{
+    screen: {
+        flex: 1,
+        flexDirection : 'column',
+        backgroundColor: 'white'
+    },
+    evaluacion:{
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    gridItem: {
+    asistencia: {
+        flex: 1,
+        margin: 15,
+        height: 150
+    },
+    reportes: {
         flex: 1,
         margin: 15,
         height: 150
