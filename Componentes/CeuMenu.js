@@ -6,7 +6,15 @@ const CeuMenu = props =>{
     return (
         <View style={style.screen}>
             <View style={style.evaluacion}> 
-                <Text style={style.title} numberOfLines={2}>Evaluacion al docente</Text>
+                <Text 
+                    style={style.title} 
+                    numberOfLines={2}
+                    onPress = {() => {
+                        props.navigation.navigate({
+                            routeName: 'AsistenciaNavegacion'
+                        })
+                    }}
+                >Evaluacion al docente</Text>
             </View>
             <Text></Text>
             <View style={style.asistencia}>
