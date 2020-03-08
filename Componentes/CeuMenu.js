@@ -11,18 +11,34 @@ const CeuMenu = props =>{
                     numberOfLines={2}
                     onPress = {() => {
                         props.navigation.navigate({
-                            routeName: 'AsistenciaNavegacion'
+                            routeName: 'EvaluacionNavegacion'
                         })
                     }}
                 >Evaluacion al docente</Text>
             </View>
             <Text></Text>
             <View style={style.asistencia}>
-                <Text style={style.title} numberOfLines={2}>Asistencia del docente</Text>
+                <Text 
+                    style={style.title} 
+                    numberOfLines={2}
+                    onPress = {() => {
+                        props.navigation.navigate({
+                            routeName: 'AsistenciaNavegacion'
+                        })
+                    }}
+                    >Asistencia del docente</Text>
             </View>
             <Text></Text>
             <View style={style.reportes}> 
-                <Text style={style.title} numberOfLines={2}>Reportes</Text>
+                <Text 
+                    style={style.title} 
+                    numberOfLines={2}
+                    onPress = {() => {
+                        props.navigation.navigate({
+                            routeName: 'ReportesNavegacion'
+                        })
+                    }}
+                    >Reportes</Text>
             </View>
             <View style={style.fooder}>
                 
