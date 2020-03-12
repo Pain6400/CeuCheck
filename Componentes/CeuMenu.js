@@ -11,7 +11,7 @@ const CeuMenu = props =>{
                     numberOfLines={2}
                     onPress = {() => {
                         props.navigation.navigate({
-                            routeName: 'EvaluacionNavegacion'
+                            routeName: 'BuscarAulaNavegacion'
                         })
                     }}
                 >Evaluacion al docente</Text>
