@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Button, FlatList, TouchableWithoutFeedback } from 'react-native';
 
 const lista = [{ key: 'test' },
 { key: 'test2' },
@@ -29,11 +29,22 @@ const BuscarAula = props => {
         .catch(console.log)
     }
 
+    actionOnRow = (item) => {
+      console.log('Selected Item :',item);
+   }
+
     return (
         <View style={styles.container}>
              <FlatList
           data={list}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          renderItem={({item}) => 
+          (
+            <TouchableWithoutFeedback onPress={ () => this.actionOnRow(item)}>
+                <View>
+                  <Text>ID: {item.key}</Text>
+                </View>
+            </TouchableWithoutFeedback>
+          )}
         />
         <Button title="CargarLista" onPress={cargarLista} />
         </View>
