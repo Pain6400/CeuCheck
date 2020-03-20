@@ -14,7 +14,7 @@ const LogFormulario = props => {
     return (
     <View style={style.container} >
         <Form type={User} />
-        <Button title="Iniciar sesion" color='#9e030d' onPress = {() => alert(User)} />
+        <Button title="Iniciar sesion" color='#9e030d' onPress = {props.navegar} />
     </View>)
 };
 
