@@ -13,7 +13,7 @@ const Navegacion = createStackNavigator({
     AsistenciaNavegacion: Asistencia,
     EvaluacionNavegacion: Evaluacion,
     ReportesNavegacion: Reportes,
-    BuscarAulaNavegacion: BuscarAula 
+    BuscarAulaNavegacion: Evaluacion 
 });
 
 export default createAppContainer(Navegacion);
