@@ -46,7 +46,7 @@ const MarcarAsistencia = props => {
                     icon={
                         <Icon
                             name="save"
-                            size={15}
+                            size={20}
                             color="white"
                         />
                     }
