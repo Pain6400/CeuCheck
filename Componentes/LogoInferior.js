@@ -5,8 +5,7 @@ import ResponsiveImage from 'react-native-responsive-image';
 const LogInInferior = props => {
     return (
     <View style={style.container} >
-        <ResponsiveImage  source={require('../Imagenes/LogoInferior.jpg')} initWidth="100" initHeight="30"/>
-
+        <ResponsiveImage  source={require('../Imagenes/LogoInferior.jpg')} initWidth="70" initHeight="20"/>
     </View>)
 };
 

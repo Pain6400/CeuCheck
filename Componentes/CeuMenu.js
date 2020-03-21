@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
 import { CeuModules } from '../Data/CeuModules';
+import { color } from 'react-native-reanimated';
+import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-fontawesome';
 
 const CeuMenu = props =>{
     return (
@@ -8,7 +10,7 @@ const CeuMenu = props =>{
             <View style={style.evaluacion}> 
                 <Text 
                     style={style.title} 
-                    numberOfLines={2}
+                    numberOfLines={0}
                     onPress = {() => {
                         props.navigation.navigate({
                             routeName: 'BuscarAulaNavegacion'
@@ -16,8 +18,8 @@ const CeuMenu = props =>{
                     }}
                 >Evaluacion al docente</Text>
             </View>
-            <Text></Text>
-            <View style={style.asistencia}>
+            
+            <View style={style.evaluacion}>
                 <Text 
                     style={style.title} 
                     numberOfLines={2}
@@ -28,8 +30,8 @@ const CeuMenu = props =>{
                     }}
                     >Asistencia del docente</Text>
             </View>
-            <Text></Text>
-            <View style={style.reportes}> 
+            
+            <View style={style.evaluacion}> 
                 <Text 
                     style={style.title} 
                     numberOfLines={2}
@@ -40,7 +42,7 @@ const CeuMenu = props =>{
                     }}
                     >Reportes</Text>
             </View>
-            <View style={style.fooder}>
+            <View style={style.footer}>
                 
             </View>
         </View>
@@ -49,6 +51,7 @@ const CeuMenu = props =>{
 
 CeuMenu.navigationOptions = {
     headerTitle: 'Menu'
+    //alignItems:'center'
 }
 
 const style = StyleSheet.create({
@@ -58,36 +61,25 @@ const style = StyleSheet.create({
         backgroundColor: 'white'
     },
     evaluacion:{
-        flex: 0.5,
-        borderRadius: 400,
-        borderWidth: 5,
-        borderColor: 'black',
+        flex: 0.2,
+        borderRadius: 100,
+        borderWidth: 4,
+        borderColor: '#D5422D',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginLeft:25,
+        marginRight:25,
+        marginTop:50,
+        backgroundColor:'#D5422D'
     },
-    asistencia: {
-        flex: 0.5,
-        borderRadius: 400,
-        borderWidth: 5,
-        borderColor: 'black',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    reportes: {
-        flex: 0.5,
-        borderRadius: 400,
-        borderWidth: 5,
-        borderColor: 'black',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    fooder:{
+    footer:{
         flex: 1,
     },
     title: {
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: 'bold',
-        textAlign: 'right'
+        textAlign: 'right',
+        color: '#ffffff'
     }
 });
 

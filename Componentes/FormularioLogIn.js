@@ -14,15 +14,17 @@ const LogFormulario = props => {
     return (
     <View style={style.container} >
         <Form type={User} />
-        <Button title="Iniciar sesion" color='#9e030d' onPress = {props.navegar} />
+        <Button title="Iniciar sesion" color='#D5422D'  onPress = {props.navegar} />
     </View>)
 };
 
 const style = StyleSheet.create({
     container:{
+        
         justifyContent: 'center',
         padding: 20,
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        margin:20
     }
     
 });
