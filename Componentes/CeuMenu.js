@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, FlatList, Text, View, Button } from 'react-native';
+import { StyleSheet, FlatList, Text, View, TouchableOpacity } from 'react-native';
 import { CeuModules } from '../Data/CeuModules';
 
 const CeuMenu = props =>{
