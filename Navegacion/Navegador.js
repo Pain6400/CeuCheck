@@ -6,6 +6,7 @@ import Asistencia from '../Componentes/Admin/Asistencia';
 import Evaluacion from '../Componentes/Admin/EvaluacionDocente';
 import Reportes from '../Componentes/Admin/Reportes';
 import BuscarAula from '../Componentes/Admin/BuscarAula';
+import MarcarAsistencia from '../Componentes/Admin/MarcarAsistencia';
 
 const Navegacion = createStackNavigator({
     LogInNavegacion: LogIn,
@@ -13,7 +14,8 @@ const Navegacion = createStackNavigator({
     AsistenciaNavegacion: Asistencia,
     EvaluacionNavegacion: Evaluacion,
     ReportesNavegacion: Reportes,
-    BuscarAulaNavegacion: Evaluacion 
+    BuscarAulaNavegacion: Evaluacion,
+    MarcarAsistenciaNavegacion: MarcarAsistencia
 });
 
 export default createAppContainer(Navegacion);
