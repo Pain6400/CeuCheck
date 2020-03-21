@@ -6,10 +6,6 @@ const MarcarAsistencia = props => {
     const [Asistencia, setAsistencia] = useState(false)    
     const { item } = props.navigation.state.params;
     
-    console.log(Asistencia);
-    function ClickInCheck(){
-        setAsistencia(false)
-    }
     return (
         <View style={styles.container}>
             <View style={styles.informacion}>
