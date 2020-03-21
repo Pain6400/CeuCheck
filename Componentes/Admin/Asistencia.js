@@ -61,7 +61,8 @@ Asistencia.navigationOptions = {
 const styles = StyleSheet.create({
     container: {
      flex: 1,
-     paddingTop: 22
+     paddingTop: 22,
+     backgroundColor:'white'
     },
     item: {
       padding: 10,
@@ -70,10 +71,15 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     viewAula:{
+        padding:10,
         flexDirection: 'row',
         margin: 10,
+        marginLeft: 30,
+        marginRight: 30,
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: 'white',
+        borderBottomColor: '#D5422D',
+        color: 'white'
     },
     Aulas:{
         marginRight: 15
