@@ -1,12 +1,22 @@
 import  React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Button, TextInput, Alert } from 'react-native';
 import { CheckBox, Icon } from 'react-native-elements'
 
-function ObtenerDatos(item, setObjeto){
+function ObtenerDatos(item, setObjeto, navigation){
     fetch('http://192.168.1.7:8000/asistencia/GetClasesPorAula/' + item.key)
     .then(res => res.json())
     .then((data) => {
-        setObjeto(data);
+        if(data.Status == 404){
+            Alert.alert(
+                'No se puede marcar asistencia',
+                'No se estan impartiendo clases',
+                [
+                    { text: 'OK', onPress: () => navigation.goBack() },
+                ]
+            ); 
+        }else{
+            setObjeto(data);
+        }
     })
     .catch(console.log)
 }
@@ -18,7 +28,7 @@ const MarcarAsistencia = props => {
     const [objeto, setObjeto] = useState({});
 
 //ObtenerPorAula------------------------------------------------
-useState(() => ObtenerDatos(item, setObjeto))
+useState(() => ObtenerDatos(item, setObjeto, navigation))
 
 //-------------------------------------------------------------------------
     return (
