@@ -1,6 +1,6 @@
 import  React, {useState} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { CheckBox, Button, Icon } from 'react-native-elements'
+import { View, Text, StyleSheet, Button } from 'react-native';
+import { CheckBox, Icon } from 'react-native-elements'
 
 const MarcarAsistencia = props => {
     const [Asistencia, setAsistencia] = useState(false)    
@@ -32,7 +32,9 @@ const MarcarAsistencia = props => {
             </View>
             <View style={styles.viewCkeck}>
                 <CheckBox
-                    title='Asistio?'
+                    center
+                    title='Marcar asistencia'
+                    checkedColor='#D5422D'
                     checked={Asistencia}
                     onPress={() => setAsistencia(!Asistencia)}
                 />
@@ -45,9 +47,8 @@ const MarcarAsistencia = props => {
                             size={20}
                             color="white"
                         />
-                    }
-                    title="Guardar"
-                    onPress ={() => GuardarAsistencia()}
+                    } 
+                    title="  Guardar" color='#D5422D'
                 />
             </View>
         </View>
@@ -69,19 +70,24 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     informacion:{
-        flex: 1,
+        
     },
     viewCkeck:{
-        flex: 1
+        padding: 10,
+        margin:10,
+        borderWidth:0
     },
     viewInputs:{
-        flex: 1
+        flex: 1,
+        margin: 30
     },
     viewInformacion:{
         flexDirection: 'row',
-        margin: 10,
-        borderWidth: 1,
-        borderColor: 'black',
+        margin: 20,
+        marginLeft: 30,
+        marginRight: 30,
+        borderBottomWidth: 1,
+        borderColor: '#D5422D',
     },
     info:{
         marginRight: 15

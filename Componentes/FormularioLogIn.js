@@ -20,11 +20,10 @@ const LogFormulario = props => {
 
 const style = StyleSheet.create({
     container:{
-        
         justifyContent: 'center',
         padding: 20,
         backgroundColor: '#ffffff',
-        margin:20
+        margin:30
     }
     
 });

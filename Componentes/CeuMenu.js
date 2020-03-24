@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, FlatList, Text, View, TouchableOpacity } from 'react-native';
 import { CeuModules } from '../Data/CeuModules';
 import { color } from 'react-native-reanimated';
-
+import { Icon } from 'react-native-elements'
 
 const CeuMenu = props =>{
     return (
@@ -32,7 +32,7 @@ const CeuMenu = props =>{
             </View>
             
             <View style={style.evaluacion}> 
-                <Text 
+                <Text
                     style={style.title} 
                     numberOfLines={2}
                     onPress = {() => {
@@ -61,7 +61,7 @@ const style = StyleSheet.create({
         backgroundColor: 'white'
     },
     evaluacion:{
-        flex: 0.2,
+        flex: 1,
         borderRadius: 100,
         borderWidth: 4,
         borderColor: '#D5422D',

@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View, Slider} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import { Slider } from 'react-native-elements'
 
 export default class Evaluacion extends React.Component {
   constructor(props) {
@@ -126,6 +127,7 @@ export default class Evaluacion extends React.Component {
             maximumValue={5}
             onValueChange={this.changeQuestion1.bind(this)}
             value={question1}
+            thumbTintColor='#D5422D'
           />
         <Text style={styles.valor_slider}>{String(question1)}</Text>
 
@@ -135,6 +137,7 @@ export default class Evaluacion extends React.Component {
             maximumValue={5}
             onValueChange={this.changeQuestion2.bind(this)}
             value={question2}
+            thumbTintColor='#D5422D'
           />
         <Text style={styles.valor_slider}>{String(question2)}</Text>
 
@@ -144,6 +147,7 @@ export default class Evaluacion extends React.Component {
             maximumValue={5}
             onValueChange={this.changeQuestion3.bind(this)}
             value={question3}
+            thumbTintColor='#D5422D'
           />
         <Text style={styles.valor_slider}>{String(question3)}</Text>
 
@@ -257,7 +261,7 @@ const styles = StyleSheet.create({
   },
   Slider:{
     padding:20,
-    marginLeft:20,
-    marginRight:20,
+    marginLeft:30,
+    marginRight:30,
   }
 });
