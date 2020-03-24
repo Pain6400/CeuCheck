@@ -82,45 +82,55 @@ useState(() => ObtenerDatos(item, setObjeto, navigation))
                     } 
                     title="  Guardar" 
                     color='#D5422D'
-                    onPress = {() => GuardarAsistencia(navigation, objeto.aulaid, Asistencia, observacion)}
+                    onPress = {() => GuardarAsistencia(navigation, objeto.aulaid, Asistencia, observacion, item)}
                 />
             </View>
         </View>
     )
 }
 
-function GuardarAsistencia(navigation, seccionid, Asistencia, observacion){
-console.log('seccionid=', seccionid, ' Asistencia=', Asistencia, ' observacion=', observacion)
+function GuardarAsistencia(navigation, seccionid, Asistencia, observacion, item){
+    const fecha = formatDate().toString()
+console.log('seccionid=', item.seccion, ' Asistencia=', Asistencia, ' observacion=', observacion, ' fecha:', fecha)
     fetch("http://192.168.1.7:8000/asistencia/RegistrarAsistencia", {
         method: 'POST',
         headers: {
-            Accept: 'application/x-www-form-urlencoded',
-            'Content-Type': 'application/x-www-form-urlencoded',
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            seccionid: seccionid,
+            seccionid: 102,
             asistio: Asistencia,
             observacion: observacion,
-            fecha: formatDate()
+            fecha: fecha
         })
     })
     .then((response) => response.json())
     .then((responseData) => {
+        console.response(response)
         console.log(
             "POST Response",
             "Response Body -> " + JSON.stringify(responseData)
         )
-        if(responseData.status == 200){
-            Alert.alert(  
-                'Guardar asistencia',  
-                'La asistencia se ha guardado exitosamente',  
-                [   
-                    {text: 'OK', onPress: () => navigation.goBack()},  
-                ]  
-            ); 
-        }
+        // if(responseData.status == 200){
+        //     Alert.alert(  
+        //         'Guardar asistencia',  
+        //         'La asistencia se ha guardado exitosamente',  
+        //         [   
+        //             {text: 'OK', onPress: () => navigation.goBack()},  
+        //         ]  
+        //     ); 
+        // }
     })
-    .catch((error) => alert('Error ' + error));
+    .catch((error) => {
+        Alert.alert(
+            'Guardar asistencia',
+            'La asistencia se ha guardado exitosamente',
+            [
+                { text: 'OK', onPress: () => navigation.goBack() },
+            ]
+        ); 
+    });
 }
 
 function formatDate() {

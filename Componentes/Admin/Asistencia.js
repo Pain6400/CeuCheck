@@ -1,16 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
-const lista = [{ key: '501' },
-{ key: 'kevin' },
-{ key: '404' },
-{ key: 'Jackson' },
-{ key: 'James' },
-{ key: 'Joel' },
-{ key: 'John' },
-{ key: 'Jillian' },
-{ key: 'Jimmy' },
-{ key: 'Julie' }]
+const lista = [{ key: '501', seccion: '201'}]
 
 const Asistencia = props => {
     const [list, CargarListApi] = useState(lista);
@@ -19,10 +10,9 @@ const Asistencia = props => {
         fetch('http://192.168.1.7:8000/asistencia/Aulas')
         .then(res => res.json())
         .then((data) => {
-            console.log(data);
             let nuevaLista = [];
             data.map(item => {
-                nuevaLista.push({key: item.idaula})
+                nuevaLista.push({key: item.aulaid, seccion: item.idseccion})
             })
           CargarListApi(nuevaLista)
         })
@@ -43,7 +33,6 @@ const Asistencia = props => {
 function ListaDeAulasRender(props){
     const { item } = props.item;
     const { navigation } = props;
-    
     return(
         <TouchableOpacity onPress={() => navigation.navigate('MarcarAsistenciaNavegacion', {item})}>
             <View style={styles.viewAula}>
