@@ -47,10 +47,15 @@ const MarcarAsistencia = props => {
                         />
                     }
                     title="Guardar"
+                    onPress ={() => GuardarAsistencia()}
                 />
             </View>
         </View>
     )
+}
+
+function GuardarAsistencia(){
+
 }
 
 MarcarAsistencia.navigationOptions = {
