@@ -45,7 +45,7 @@ function ListaDeAulasRender(props){
     const { navigation } = props;
     
     return(
-        <TouchableOpacity onPress={() => navigation.navigate('MarcarAsistenciaNavegacion', {item})}>
+        <TouchableOpacity onPress={() => navigation.navigate('EvaluacionNavegacion', {item})}>
             <View style={styles.viewAula}>
                 <View style={styles.Aulas}>
                     <Text style={styles.item}>{item.key}</Text>

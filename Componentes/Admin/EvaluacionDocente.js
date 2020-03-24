@@ -4,6 +4,8 @@ import { Slider } from 'react-native-elements'
 
 export default class Evaluacion extends React.Component {
   constructor(props) {
+    const  { key } = props.navigation.state.params.item;
+    console.log(key);
     super(props);
     this.state = {
       question1: 0,
