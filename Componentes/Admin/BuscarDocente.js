@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
-const lista = [{ key: '501' },
+const lista = [{ key: 'Josue' },
 { key: 'kevin' },
-{ key: '404' },
+{ key: 'Carmen' },
 { key: 'Jackson' },
 { key: 'James' },
 { key: 'Joel' },
@@ -12,7 +12,7 @@ const lista = [{ key: '501' },
 { key: 'Jimmy' },
 { key: 'Julie' }]
 
-const Asistencia = props => {
+const BuscarDocente = props => {
     const [list, CargarListApi] = useState(lista);
     const { navigation } = props;
     useEffect(() => {
@@ -24,7 +24,7 @@ const Asistencia = props => {
             data.map(item => {
                 nuevaLista.push({key: item.idaula})
             })
-          CargarListApi(nuevaLista)
+          //CargarListApi(nuevaLista)
         })
         .catch(console.log)
     }, [])
@@ -55,7 +55,7 @@ function ListaDeAulasRender(props){
     )
 }
 
-Asistencia.navigationOptions = {
+BuscarDocente.navigationOptions = {
     headerTitle: "Aulas",
 };
 
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
     },
   })
 
-export default Asistencia;
+export default BuscarDocente;
