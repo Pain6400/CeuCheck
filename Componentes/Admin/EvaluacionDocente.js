@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import { Slider } from 'react-native-elements'
+import {StyleSheet, Text, View,ScrollView, Button} from 'react-native';
+import { Slider,Icon } from 'react-native-elements'
 
 export default class Evaluacion extends React.Component {
   constructor(props) {
@@ -47,82 +47,83 @@ export default class Evaluacion extends React.Component {
     });
   }
 
-  // changeQuestion4(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question4: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion4(value) {
+    this.setState(() => {
+      return {
+        question4: parseFloat(value),
+      };
+    });
+  }
 
-  // changeQuestion5(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question5: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion5(value) {
+    this.setState(() => {
+      return {
+        question5: parseFloat(value),
+      };
+    });
+  }
 
-  // changeQuestion6(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question6: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion6(value) {
+    this.setState(() => {
+      return {
+        question6: parseFloat(value),
+      };
+    });
+  }
 
-  // changeQuestion7(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question7: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion7(value) {
+    this.setState(() => {
+      return {
+        question7: parseFloat(value),
+      };
+    });
+  }
 
-  // changeQuestion8(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question8: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion8(value) {
+    this.setState(() => {
+      return {
+        question8: parseFloat(value),
+      };
+    });
+  }
 
-  // changeQuestion9(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question9: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion9(value) {
+    this.setState(() => {
+      return {
+        question9: parseFloat(value),
+      };
+    });
+  }
 
-  // changeQuestion10(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question10: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion10(value) {
+    this.setState(() => {
+      return {
+        question10: parseFloat(value),
+      };
+    });
+  }
 
-  // changeQuestion11(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question11: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion11(value) {
+    this.setState(() => {
+      return {
+        question11: parseFloat(value),
+      };
+    });
+  }
 
-  // changeQuestion12(value) {
-  //   this.setState(() => {
-  //     return {
-  //       question12: parseFloat(value),
-  //     };
-  //   });
-  // }
+  changeQuestion12(value) {
+    this.setState(() => {
+      return {
+        question12: parseFloat(value),
+      };
+    });
+  } 
 
   render() {
     const {question1, question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12} = this.state;
     return (
-      <View style={styles.screen}>
+      //<View style={styles.screen}>
+      <ScrollView>
         <Text style={styles.text}>El profesor asiste puntualmente a sus clases?</Text>
           <Slider style={styles.Slider}
             step={1}
@@ -153,7 +154,7 @@ export default class Evaluacion extends React.Component {
           />
         <Text style={styles.valor_slider}>{String(question3)}</Text>
 
-        {/* <Text style={styles.text}>El profesor imparte la clase de forma clara y ordenada?</Text>
+        <Text style={styles.text}>El profesor imparte la clase de forma clara y ordenada?</Text>
           <Slider style={styles.Slider}
             step={1}
             maximumValue={5}
@@ -232,8 +233,22 @@ export default class Evaluacion extends React.Component {
             onValueChange={this.changeQuestion12.bind(this)}
             value={question12}
           />
-        <Text style={styles.valor_slider}>{String(question12)}</Text> */}
-      </View>
+        <Text style={styles.valor_slider}>{String(question12)}</Text>
+
+        {/* Boton guardar info */}
+       <Button
+          icon={
+              <Icon
+                  name="save"
+                  size={20}
+                  color="white"
+              />
+          } 
+          title="  Guardar" 
+          color='#D5422D'
+          //onPress = {() => GuardarAsistencia(navigation, objeto.aulaid, Asistencia, observacion)}
+        />
+      </ScrollView>
     );
   }
 }
