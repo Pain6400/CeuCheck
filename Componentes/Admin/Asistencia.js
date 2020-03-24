@@ -16,12 +16,12 @@ const Asistencia = props => {
     const [list, CargarListApi] = useState(lista);
     const { navigation } = props;
     useEffect(() => {
-        fetch('http://192.168.1.7:8000/Aulas/GetAulas')
+        fetch('http://192.168.1.7:8000/asistencia/Aulas')
         .then(res => res.json())
         .then((data) => {
             let nuevaLista = [];
             data.map(item => {
-                nuevaLista.push({key: item.seccionid})
+                nuevaLista.push({key: item.idaula})
             })
           CargarListApi(nuevaLista)
         })
