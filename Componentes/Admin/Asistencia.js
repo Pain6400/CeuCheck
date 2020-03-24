@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
-const lista = [{ key: 'test' },
-{ key: 'test2' },
-{ key: 'Dominic' },
+const lista = [{ key: '501' },
+{ key: '303' },
+{ key: '404' },
 { key: 'Jackson' },
 { key: 'James' },
 { key: 'Joel' },
@@ -23,7 +23,7 @@ const Asistencia = props => {
             data.map(item => {
                 nuevaLista.push({key: item.name})
             })
-          CargarListApi(nuevaLista)
+          //CargarListApi(nuevaLista)
         })
         .catch(console.log)
     }, [])

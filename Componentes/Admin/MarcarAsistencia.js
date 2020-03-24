@@ -1,33 +1,46 @@
-import  React, {useState} from 'react';
+import  React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
 import { CheckBox, Icon } from 'react-native-elements'
 
+function ObtenerDatos(item, setObjeto){
+    fetch('http://192.168.1.7:8000/asistencia/GetClasesPorAula/' + item.key)
+    .then(res => res.json())
+    .then((data) => {
+        setObjeto(data);
+    })
+    .catch(console.log)
+}
 const MarcarAsistencia = props => {
     const [Asistencia, setAsistencia] = useState(false)    
     const [observacion, setObservacion] = useState('Ninguna');
     const { item } = props.navigation.state.params;
     const { navigation } = props;
+    const [objeto, setObjeto] = useState({});
+
+    //ObtenerPorAula------------------------------------------------
+useState(() => ObtenerDatos(item, setObjeto))
+//-------------------------------------------------------------------------
     return (
         <View style={styles.container}>
             <View style={styles.informacion}>
                 <View style={styles.viewInformacion}>
                     <View style={styles.info}>
-                        <Text style={styles.texto}>Aula: {item.key}</Text>
+                        <Text style={styles.texto}>Aula: {objeto.aulaid}</Text>
                     </View>
                 </View>
                 <View style={styles.viewInformacion}>
                     <View style={styles.info}>
-                        <Text style={styles.texto}>Maestro:</Text>
+                        <Text style={styles.texto}>Docente: {objeto.docente}</Text>
                     </View>
                 </View>
                 <View style={styles.viewInformacion}>
                     <View style={styles.info}>
-                        <Text style={styles.texto}>Materia:</Text>
+                        <Text style={styles.texto}>Materia: {objeto.nombremateria}</Text>
                     </View>
                 </View>
                 <View style={styles.viewInformacion}>
                     <View style={styles.info}>
-                        <Text style={styles.texto}>Hora:</Text>
+                        <Text style={styles.texto}>Hora: de {objeto.horainicio} hasta {objeto.horafinal}</Text>
                     </View>
                 </View>
             </View>
@@ -58,7 +71,7 @@ const MarcarAsistencia = props => {
                     } 
                     title="  Guardar" 
                     color='#D5422D'
-                    onPress = {GuardarAsistencia(navigation)}
+                    onPress = {() => GuardarAsistencia(navigation)}
                 />
             </View>
         </View>
@@ -66,8 +79,51 @@ const MarcarAsistencia = props => {
 }
 
 function GuardarAsistencia(navigation){
-    var date = new Date();
-    console.log('Fecha',date);
+
+    fetch("https://nomnomapi.azurewebsites.net/api/Account/Login", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            seccionid: '1',
+            asistio: Asistencia,
+            observacion: observacion,
+            fecha: formatDate()
+        })
+    })
+    .then((response) => response.json())
+    .then((responseData) => {
+        console.log(
+            "POST Response",
+            "Response Body -> " + JSON.stringify(responseData)
+        )
+        if(responseData == 200){
+            Alert.alert(  
+                'Guardar asistencia',  
+                'La asistencia se ha guardado exitosamente',  
+                [   
+                    {text: 'OK', onPress: () => navigation.goBack()},  
+                ]  
+            ); 
+        }
+    })
+    .done();
+}
+
+function formatDate() {
+    var d = new Date(),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
 }
 
 MarcarAsistencia.navigationOptions = {
