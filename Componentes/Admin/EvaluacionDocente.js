@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View,ScrollView, Button} from 'react-native';
+import {StyleSheet, Text, View,ScrollView, Button, Alert} from 'react-native';
 import { Slider,Icon } from 'react-native-elements'
 
 export default class Evaluacion extends React.Component {
@@ -121,6 +121,7 @@ export default class Evaluacion extends React.Component {
 
   render() {
     const {question1, question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12} = this.state;
+    const { navigation } = this.props
     return (
       //<View style={styles.screen}>
       <ScrollView>
@@ -246,13 +247,22 @@ export default class Evaluacion extends React.Component {
           } 
           title="  Guardar" 
           color='#D5422D'
-          //onPress = {() => GuardarAsistencia(navigation, objeto.aulaid, Asistencia, observacion)}
+          onPress = {() => GuardarAsistencia(navigation)}
         />
       </ScrollView>
     );
   }
 }
 
+function GuardarAsistencia(navigation){
+  Alert.alert(
+    'Evaluacion del docente',
+    'La evaluacion se ha guardado excitosamente',
+    [
+        { text: 'OK', onPress: () => navigation.goBack() },
+    ]
+);
+}
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
