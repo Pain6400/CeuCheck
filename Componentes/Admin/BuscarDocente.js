@@ -16,15 +16,14 @@ const BuscarDocente = props => {
     const [list, CargarListApi] = useState(lista);
     const { navigation } = props;
     useEffect(() => {
-        fetch('http://192.168.1.7:8000/asistencia/Aulas')
+        fetch('http://192.168.1.7:8000/asistencia/Docentes')
         .then(res => res.json())
         .then((data) => {
-            console.log(data);
             let nuevaLista = [];
             data.map(item => {
-                nuevaLista.push({key: item.idaula})
+                nuevaLista.push({key: item.nombres + item.apellidos})
             })
-          //CargarListApi(nuevaLista)
+          CargarListApi(nuevaLista)
         })
         .catch(console.log)
     }, [])
@@ -56,7 +55,7 @@ function ListaDeAulasRender(props){
 }
 
 BuscarDocente.navigationOptions = {
-    headerTitle: "Aulas",
+    headerTitle: "Catedraticos",
 };
 
 const styles = StyleSheet.create({

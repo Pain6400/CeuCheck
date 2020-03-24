@@ -148,7 +148,7 @@ function formatDate() {
 }
 
 MarcarAsistencia.navigationOptions = {
-    headerTitle: "Informacion del aula",
+    headerTitle: "Asistencia de catedratico",
 };
 
 const styles = StyleSheet.create({

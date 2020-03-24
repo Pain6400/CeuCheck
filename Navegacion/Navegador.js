@@ -13,7 +13,12 @@ const Navegacion = createStackNavigator({
     LogInNavegacion: LogIn,
     CeuMenuNavegation: CeuMenu,
     AsistenciaNavegacion: Asistencia,
-    EvaluacionNavegacion: Evaluacion,
+    EvaluacionNavegacion: {
+        screen: Evaluacion,
+        navigationOptions: {
+            title: 'Evaluacion al docente'
+          }
+    },
     ReportesNavegacion: Reportes,
     BuscarAulaNavegacion: Evaluacion,
     MarcarAsistenciaNavegacion: MarcarAsistencia,
