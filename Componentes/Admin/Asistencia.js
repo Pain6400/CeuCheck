@@ -16,14 +16,14 @@ const Asistencia = props => {
     const [list, CargarListApi] = useState(lista);
     const { navigation } = props;
     useEffect(() => {
-        fetch('http://jsonplaceholder.typicode.com/users')
+        fetch('http://192.168.1.7:8000/Aulas/GetAulas')
         .then(res => res.json())
         .then((data) => {
             let nuevaLista = [];
             data.map(item => {
-                nuevaLista.push({key: item.name})
+                nuevaLista.push({key: item.seccionid})
             })
-          //CargarListApi(nuevaLista)
+          CargarListApi(nuevaLista)
         })
         .catch(console.log)
     }, [])

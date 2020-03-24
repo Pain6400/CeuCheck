@@ -11,14 +11,15 @@ function ObtenerDatos(item, setObjeto){
     .catch(console.log)
 }
 const MarcarAsistencia = props => {
-    const [Asistencia, setAsistencia] = useState(false)    
+    const [Asistencia, setAsistencia] = useState(false);
     const [observacion, setObservacion] = useState('Ninguna');
     const { item } = props.navigation.state.params;
     const { navigation } = props;
     const [objeto, setObjeto] = useState({});
 
-    //ObtenerPorAula------------------------------------------------
+//ObtenerPorAula------------------------------------------------
 useState(() => ObtenerDatos(item, setObjeto))
+
 //-------------------------------------------------------------------------
     return (
         <View style={styles.container}>
@@ -71,45 +72,45 @@ useState(() => ObtenerDatos(item, setObjeto))
                     } 
                     title="  Guardar" 
                     color='#D5422D'
-                    onPress = {() => GuardarAsistencia(navigation)}
+                    onPress = {() => GuardarAsistencia(navigation, objeto.aulaid, Asistencia, observacion)}
                 />
             </View>
         </View>
     )
 }
 
-function GuardarAsistencia(navigation){
-
-    fetch("https://nomnomapi.azurewebsites.net/api/Account/Login", {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            seccionid: '1',
-            asistio: Asistencia,
-            observacion: observacion,
-            fecha: formatDate()
-        })
-    })
-    .then((response) => response.json())
-    .then((responseData) => {
-        console.log(
-            "POST Response",
-            "Response Body -> " + JSON.stringify(responseData)
-        )
-        if(responseData == 200){
-            Alert.alert(  
-                'Guardar asistencia',  
-                'La asistencia se ha guardado exitosamente',  
-                [   
-                    {text: 'OK', onPress: () => navigation.goBack()},  
-                ]  
-            ); 
-        }
-    })
-    .done();
+function GuardarAsistencia(navigation, seccionid, Asistencia, observacion){
+console.log('seccionid=', seccionid, ' Asistencia=', Asistencia, ' observacion=', observacion)
+    // fetch("http://192.168.1.7:8000/asistencia/RegistrarAsistencia", {
+    //     method: 'POST',
+    //     headers: {
+    //         Accept: 'application/x-www-form-urlencoded',
+    //         'Content-Type': 'application/x-www-form-urlencoded',
+    //     },
+    //     body: JSON.stringify({
+    //         seccionid: seccionid,
+    //         asistio: Asistencia,
+    //         observacion: observacion,
+    //         fecha: formatDate()
+    //     })
+    // })
+    // .then((response) => response.json())
+    // .then((responseData) => {
+    //     console.log(
+    //         "POST Response",
+    //         "Response Body -> " + JSON.stringify(responseData)
+    //     )
+    //     // if(responseData.status == 200){
+    //     //     Alert.alert(  
+    //     //         'Guardar asistencia',  
+    //     //         'La asistencia se ha guardado exitosamente',  
+    //     //         [   
+    //     //             {text: 'OK', onPress: () => navigation.goBack()},  
+    //     //         ]  
+    //     //     ); 
+    //     // }
+    // })
+    // .catch((error) => alert('Error ' + error));
 }
 
 function formatDate() {
