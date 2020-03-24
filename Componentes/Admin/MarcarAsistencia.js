@@ -1,11 +1,12 @@
 import  React, {useState} from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
 import { CheckBox, Icon } from 'react-native-elements'
 
 const MarcarAsistencia = props => {
     const [Asistencia, setAsistencia] = useState(false)    
+    const [observacion, setObservacion] = useState('Ninguna');
     const { item } = props.navigation.state.params;
-    
+    const { navigation } = props;
     return (
         <View style={styles.container}>
             <View style={styles.informacion}>
@@ -39,6 +40,13 @@ const MarcarAsistencia = props => {
                     onPress={() => setAsistencia(!Asistencia)}
                 />
             </View>
+            <View style={styles.viewObservacion}>
+                <TextInput
+                    placeholder='Observacion'
+                    style={styles.inputs}
+                    onChangeText={(val) => setObservacion(val)}
+                />
+            </View>
             <View style={styles.viewInputs}>
                 <Button
                     icon={
@@ -48,15 +56,18 @@ const MarcarAsistencia = props => {
                             color="white"
                         />
                     } 
-                    title="  Guardar" color='#D5422D'
+                    title="  Guardar" 
+                    color='#D5422D'
+                    onPress = {GuardarAsistencia(navigation)}
                 />
             </View>
         </View>
     )
 }
 
-function GuardarAsistencia(){
-
+function GuardarAsistencia(navigation){
+    var date = new Date();
+    console.log('Fecha',date);
 }
 
 MarcarAsistencia.navigationOptions = {
@@ -98,6 +109,17 @@ const styles = StyleSheet.create({
         height: 44,
         fontWeight: 'bold'
       },
+      viewObservacion:{
+          flex: 1,
+          borderBottomWidth: 1,
+          borderColor: '#D5422D',
+          margin: 20,
+          marginLeft: 30,
+          marginRight: 30,
+      },
+      inputs: {
+          marginLeft: 135
+    },
 })
 
 export default MarcarAsistencia;
